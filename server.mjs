@@ -8,7 +8,7 @@ import userM from "./models/student.model.mjs";
 
 const app = express();
 
-/// body-parser for adding input ////
+/// body-parser for adding input //// 
 
 app.use(bodyParser.json());
 
@@ -22,7 +22,7 @@ db.on("error", () => {
 });
 db.once("open",() => {
     console.log("mongo connection is successful");
-    init();
+    //init();
 });
 
 

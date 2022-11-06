@@ -41,14 +41,14 @@ export const findStudent = async(req,res) => {
         
         ///// we can also find our pprovided id with queries  ////////
 
-        //const studentId = req.query.id;
+        const studentId = req.query.id;
 
         const studentName = req.query.name;
         const studentMarks = req.query.marks;
          
-        // if(studentId){
-        //     findStudentsByQuery.id = studentId;
-        // }
+        if(studentId){
+            findStudentsByQuery.id = studentId;
+        }
          
         if(studentName){
             findStudentsByQuery.name = studentName;
@@ -69,19 +69,19 @@ export const findStudent = async(req,res) => {
 
 ////  finding data with our provided id  /////
 
-export const findStudentById = async(req,res) => {
-    try{
-    const student = await Student.findOne({id : req.body.id });
+// export const findStudentById = async(req,res) => {
+//     try{
+//     const student = await Student.findOne({id : req.body.id });
     
-    return res.status(200).send(student);
+//     return res.status(200).send(student);
 
-    }catch{
-        res.status(400).send("error in finding by id");
-    }
-}
+//     }catch{
+//         res.status(400).send("error in finding by id");
+//     }
+// }
 
 
-//// updating Student data with email as id's are provided by us, it can be mistaken /////
+//// updating Student data  /////
 
 export const updateStudent = async(req,res) => {
    try{ 
@@ -96,7 +96,7 @@ export const updateStudent = async(req,res) => {
 
     const response = await student.save();
     
-    return res.status(200).send({
+    return res.status(200).send({ 
     id : response.id, 
     name : response.name,
     email : response.email,
@@ -122,7 +122,7 @@ export const deleteStudent = async(req,res) => {
 
     await Student.deleteOne({id : req.body.id});
 
-    res.status(200).send("student data is removed successfully");
+    return res.status(200).send("student data is removed successfully");
  
 }catch{
     res.status(400).send("error while deleting");
