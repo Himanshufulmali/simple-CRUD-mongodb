@@ -69,16 +69,16 @@ export const findStudent = async(req,res) => {
 
 ////  finding data with our provided id  /////
 
-// export const findStudentById = async(req,res) => {
-//     try{
-//     const student = await Student.findOne({id : req.params.id });
+export const findStudentById = async(req,res) => {
+    try{
+    const student = await Student.findOne({id : req.params.id });
     
-//     return res.status(200).send(student);
+    return res.status(200).send(student);
 
-//     }catch{
-//         res.status(400).send("error in finding by id");
-//     }
-// }
+    }catch{
+        res.status(400).send("error in finding by id");
+    }
+}
 
 
 //// updating Student data  /////
