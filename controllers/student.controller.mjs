@@ -71,7 +71,7 @@ export const findStudent = async(req,res) => {
 
 // export const findStudentById = async(req,res) => {
 //     try{
-//     const student = await Student.findOne({id : req.body.id });
+//     const student = await Student.findOne({id : req.params.id });
     
 //     return res.status(200).send(student);
 
